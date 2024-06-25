@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boost/flutter_boost.dart';
 
@@ -418,6 +419,16 @@ class _MyAppState extends State<MyApp> {
           });
     },
     'flutterRebuildPageB': (settings, uniqueId) {
+      return MaterialPageRoute(
+          settings: settings,
+          builder: (ctx) {
+            return BoostCacheWidget(
+              uniqueId: uniqueId!,
+              builder: (_) => const FlutterRebuildPageB(),
+            );
+          });
+    },
+    Navigator.defaultRouteName:(settings, uniqueId){
       return MaterialPageRoute(
           settings: settings,
           builder: (ctx) {
