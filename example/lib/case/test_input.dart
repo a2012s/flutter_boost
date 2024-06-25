@@ -133,12 +133,12 @@ class _TestTextFieldState extends State<TestTextField> {
     _node!.addListener(() {
       if (_node!.hasFocus) {
         debugPrint('showBottomSheet');
-        _controller = Scaffold.of(context)
-            .showBottomSheet<dynamic>((BuildContext ctx) => Container(
-                  width: double.infinity,
-                  height: 36.0,
-                  color: Colors.deepPurple,
-                ));
+        // showBottomSheet_controller = Scaffold.of(context)
+        //     .showBottomSheet<dynamic>((BuildContext ctx) => Container(
+        //           width: double.infinity,
+        //           height: 36.0,
+        //           color: Colors.deepPurple,
+        //         ));
       } else {
         debugPrint('closeBottomSheet');
         _controller!.close();

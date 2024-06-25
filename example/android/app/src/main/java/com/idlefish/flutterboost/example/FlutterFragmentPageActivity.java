@@ -12,16 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
 
-import io.flutter.embedding.android.DrawableSplashScreen;
+
 import io.flutter.embedding.android.FlutterFragment;
-import io.flutter.embedding.android.SplashScreen;
-import io.flutter.embedding.android.SplashScreenProvider;
+
 import io.flutter.plugin.platform.PlatformPlugin;
 
-public class FlutterFragmentPageActivity extends AppCompatActivity implements View.OnClickListener, SplashScreenProvider {
+public class FlutterFragmentPageActivity extends AppCompatActivity implements View.OnClickListener {
     protected static final String SPLASH_SCREEN_META_DATA_KEY = "io.flutter.embedding.android.SplashScreenDrawable";
 
     private FlutterFragment mFragment;
@@ -34,12 +32,10 @@ public class FlutterFragmentPageActivity extends AppCompatActivity implements Vi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(0x40000000);
-            window.getDecorView().setSystemUiVisibility(PlatformPlugin.DEFAULT_SYSTEM_UI);
-        }
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(0x40000000);
+        window.getDecorView().setSystemUiVisibility(PlatformPlugin.DEFAULT_SYSTEM_UI);
         super.onCreate(savedInstanceState);
 
         final ActionBar actionBar = getSupportActionBar();
@@ -97,16 +93,16 @@ public class FlutterFragmentPageActivity extends AppCompatActivity implements Vi
         mTab1.performClick();
     }
 
-    @Nullable
-    @Override
-    public SplashScreen provideSplashScreen() {
-        Drawable manifestSplashDrawable = getSplashScreenFromManifest();
-        if (manifestSplashDrawable != null) {
-            return new DrawableSplashScreen(manifestSplashDrawable, ImageView.ScaleType.CENTER,500L);
-        } else {
-            return null;
-        }
-    }
+//    @Nullable
+//    @Override
+//    public SplashScreen provideSplashScreen() {
+//        Drawable manifestSplashDrawable = getSplashScreenFromManifest();
+//        if (manifestSplashDrawable != null) {
+//            return new DrawableSplashScreen(manifestSplashDrawable, ImageView.ScaleType.CENTER,500L);
+//        } else {
+//            return null;
+//        }
+//    }
 
     private Drawable getSplashScreenFromManifest() {
         try {

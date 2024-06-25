@@ -12,14 +12,15 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
 // #docregion platform_imports
 // Import for Android features.
 import 'package:webview_flutter_android/webview_flutter_android.dart';
+
 // Import for iOS features.
 import 'package:webview_flutter_wkwebview/webview_flutter_wkwebview.dart';
 // Import for ohos fetures.
-import 'package:webview_flutter_ohos/webview_flutter_ohos.dart';
-import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
+
 // #enddocregion platform_imports
 
 void main() => runApp(const MaterialApp(home: WebViewExample()));
@@ -101,11 +102,8 @@ class _WebViewExampleState extends State<WebViewExample> {
         mediaTypesRequiringUserAction: const <PlaybackMediaTypes>{},
       );
     }
-    if (WebViewPlatform.instance is OhosWebViewPlatform) {
-      params = OhosWebViewControllerCreationParams();
-    } else {
-      params = const PlatformWebViewControllerCreationParams();
-    }
+
+    params = const PlatformWebViewControllerCreationParams();
 
     final WebViewController controller =
         WebViewController.fromPlatformCreationParams(params);

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.window.SplashScreen;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,6 +44,12 @@ public class LifecycleView extends FrameLayout implements LifecycleOwner, Flutte
   }
 
   public boolean shouldDispatchAppLifecycleState() { return true; }
+
+  @Override
+  public boolean attachToEngineAutomatically() {
+    return false;
+  }
+
   public void updateSystemUiOverlays() {}
   public String getDartEntrypointLibraryUri() { return null; }
   public ExclusiveAppComponent<Activity> getExclusiveAppComponent() { return mDelegate; }
