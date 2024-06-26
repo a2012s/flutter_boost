@@ -4,22 +4,16 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
 import androidx.annotation.NonNull;
-
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.FlutterBoostUtils;
-import com.idlefish.flutterboost.Messages;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-
 import io.flutter.embedding.android.LifecycleView;
 import io.flutter.embedding.android.RenderMode;
 import io.flutter.embedding.android.TransparencyMode;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
-
 import static com.idlefish.flutterboost.containers.FlutterActivityLaunchConfigs.EXTRA_UNIQUE_ID;
 import static com.idlefish.flutterboost.containers.FlutterActivityLaunchConfigs.EXTRA_URL;
 import static com.idlefish.flutterboost.containers.FlutterActivityLaunchConfigs.EXTRA_URL_PARAM;
